@@ -16,5 +16,5 @@ public class AirPlane {
 		System.out.printf("비행기 이름:%s, 비행기 번호:%d, 누적대수:%d\n",airName,airNum,airCount);
 		
 	}
-	
+
 }

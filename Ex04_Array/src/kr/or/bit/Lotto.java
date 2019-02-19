@@ -46,7 +46,7 @@ public class Lotto {
 				displayMenu();
 				
 				break here;
-			 0
+			 
 
 			case "2":
 				System.out.println("프로그램 종료");

@@ -87,13 +87,13 @@ class OverTest{
 		return null;
 	}
 	
-	Humman[] add(Human[] human ) {
-		//...
-		Humman[] h = new Human[human.length];
-		//...
-		retrun h;
-		
+	Human[] add(Human[] human) {
+		//......
+		Human[] h = new Human[human.length];
+		//......
+		return h;
 	}
+	
 }
 
 public class Ex11_method_overloading {
