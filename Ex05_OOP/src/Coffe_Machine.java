@@ -1,84 +1,136 @@
+/*
+
+import java.util.Scanner;
+
 public class Coffe_Machine {
 
 	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		Button button = new Button();
+		InputMoney inputmoney = new InputMoney();
+		Material material = new Material();
+		int b;
+		while (true) {
+			System.out.println("현금을 입력하세요.");
+			int money = sc.nextInt();
+			inputmoney.InputAmount(money);
 			
+			do {
+				System.out.println("뽑을 커피의 번호를 입력하세요.");
+
+				b = sc.nextInt();
+
+				button.selectCoffee(b);
+			} while (!(b >= 1 && b <= 3));
+		}
 	}
 }
 
-class 현금투입구{
-	private int 동전투입구=0;
-	private Long 지폐투입구=0L;
-	private Long 현재금액=0L;
-	
-	public 현금투입구(int 동전투입구) {
-		this.동전투입구=동전투입구;
-		현재금액+=동전투입구;
-	}
-	public 현금투입구(Long 지폐투입구) {
-		this.지폐투입구=지폐투입구;
-		현재금액+=지폐투입구;
-	}
-	public 현금투입구(int 동전투입구, Long 지폐투입구){
-		this.동전투입구=동전투입구;
-		this.지폐투입구=지폐투입구;
-		
-		동전투입구+=동전투입구;
-		지폐투입구+=지폐투입구;
-		
-		현재금액=동전투입구+지폐투입구;
+class Button {
+
+	Material m = new Material();
+	InputMoney i = new InputMoney();
+	private final int americanoButton = 1;
+	private final int hazelnutButton = 2;
+	private final int milkCoffeeButton = 3;
+	private boolean iceHotButton; // 수정됐음
+	private static int change;
+	// 잔돈반환버튼 삭제
+
+	void selectCoffee(int button) {
+
+		switch (button) {
+
+		case americanoButton:
+			m.makeAmericano();
+			change = InputMoney.amount - i.americano;
+			InputMoney.amount = 0;
+			System.out.println("잔돈 : " + change);
+			break;
+		case hazelnutButton:
+			m.makeHzn();
+			change = InputMoney.amount - i.hazelnut;
+			InputMoney.amount = 0;
+			System.out.println("잔돈 : " + change);
+			break;
+		case milkCoffeeButton:
+			m.makeMilkCoffee();
+			change = InputMoney.amount - i.milkCoffee;
+			InputMoney.amount = 0;
+			System.out.println("잔돈 : " + change);
+			break;
+		default:
+			System.out.println("없는 번호입니다.");
+		}
 	}
 }
-class 버튼{
-	재료 n = new 재료();
-	boolean 아메리카노버튼;
-	boolean 헤이즐넛버튼;
-	boolean 밀크커피버튼;
-	boolean 잔돈반환버튼;
-	boolean 아이스_핫_선택버튼;
-	
-	void 아메리카노() {
-		n.아메리카노만들기();
+
+class InputMoney {
+	Scanner sc = new Scanner(System.in);
+	public static int amount = 0; // 수정
+	public int americano = 1000;
+	public int hazelnut = 2000;
+	public int milkCoffee = 3000;
+
+	public int InputAmount(int money) { // 수정
+		amount += money;
+		System.out.println("현재금액 : " + amount);
+		while (amount < americano) {
+			if (amount < americano) {
+				System.out.println("뽑을 수 있는 커피가 없습니다. 돈을 더 넣으세요.");
+			}
+			amount += sc.nextInt();
+			System.out.println("현재금액 : " + amount);
+		}
+		if (amount >= americano) {
+			System.out.println("1. 아메리카노 (O) -뽑을 수 있음");
+		}
+		if (amount >= hazelnut) {
+			System.out.println("2. 헤이즐넛 (O) -뽑을 수 있음");
+		}
+		if (amount >= milkCoffee) {
+			System.out.println("3. 밀크커피 (O) -뽑을 수 있음");
+		}
+		return amount;
 	}
-	void 헤이즐넛() {
-		n.헤이즐넛만들기();
-	}
-	void 밀크커피() {
-		n.밀크커피만들기();
-	}
-	void  잔돈반환() {
-		n.잔돈반환();
-	}
-	
+
 }
-class 재료{
-	int 뜨거운물;
-	int 헤이즐넛시럽;
-	int 커피가루;
-	int 우유;
-	int 얼음;
-	int 종이컵;
-	void 아메리카노만들기() {
-		종이컵--;
-		얼음--;
-		커피가루--;
-		뜨거운물--;
+
+class Material { // 1당 1인분..
+	private int hotWater = 100;
+	private int hznSyrup = 100;
+	private int coffeePowder = 100;
+	private int milk = 100;
+	private int ice = 100;
+	private int paperCup = 100;
+
+	public void makeAmericano() {
+		this.paperCup--;
+		this.coffeePowder--;
+		this.hotWater--;
 		System.out.println("아메리카노");
 	}
-	void 헤이즐넛만들기() {
-		헤이즐넛시럽--;
-		종이컵--;
-		커피가루--;
-		뜨거운물--;
+
+	public void makeHzn() {
+		this.hznSyrup--;
+		this.paperCup--;
+		this.coffeePowder--;
+		this.hotWater--;
 		System.out.println("헤이즐넛");
 	}
-	void 밀크커피만들기() {
-		우유--;
-		종이컵--;
-		커피가루--;
-		뜨거운물--;
+
+	public void makeMilkCoffee() {
+		this.milk--;
+		this.paperCup--;
+		this.coffeePowder--;
+		this.hotWater--;
 		System.out.println("밀크커피");
 	}
-	void 잔돈반환() {
-		System.out.println("잔돈반환");
+
+	public void IceHot(boolean iceHotButton) { // 추가됐음
+		if (iceHotButton == true) {
+			this.ice--;
+		}
 	}
 }
+*/

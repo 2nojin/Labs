@@ -5,6 +5,8 @@
 //3개의 (x,y) , (x,y) , (x,y) 의미
 //default 삼각형을 그릴 수 있고 3개의 좌표값을 받아서 그림을 그릴 수도 있다.
 
+
+/*
 class Shape2{
 	String color="gold";
 	void draw() {
@@ -76,3 +78,4 @@ public class Triangle {
 	}
 
 }
+*/
