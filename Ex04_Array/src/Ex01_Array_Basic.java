@@ -1,7 +1,6 @@
 import java.util.Arrays;
 
 //배열(Array)는 객체다. heap메모리에 올라간다.
-
 public class Ex01_Array_Basic {
 
 	public static void main(String[] args) {

@@ -2,6 +2,7 @@ import java.util.Arrays;
 
 import kr.or.bit.Emp;
 
+
 class Test extends Object{
 	void print() {
 		System.out.println("부모함수_TEST");
