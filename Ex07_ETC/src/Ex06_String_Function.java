@@ -34,7 +34,7 @@ public class Ex06_String_Function {
 		
 		//활용 : 문장내에서 내가 원하는 단어가 포함되어 있는지 검증
 		// 0 보다 큰값이면 최소한 하나의 단어 포함
-		System.out.println(filename.lastIndexOf("a"));
+		System.out.println(filename.lastIndexOf("a"));	//제일 뒤에 있는 a를 찾는다, 단 번호는 앞에서 부터 셈
 		System.out.println(filename.lastIndexOf("njlee"));
 		//배열에 값이 없다 == -1
 		//return -1;
@@ -48,7 +48,6 @@ public class Ex06_String_Function {
 		System.out.println(result.substring(0,1));
 		System.out.println(result.substring(1,1));
 		System.out.println(result.substring(2,3));	//index endIndex-1
-		
 		//Quiz
 		String filename2="홍길동.jpg";	//파일명은 바꾸어 질 수 있다.
 		//aaaaa.mgeg or ab.hwp

@@ -14,7 +14,6 @@ public class Ex05_String {
 		System.out.println(str.length());	// 내부적으로 char[] 관리
 		System.out.println(str.toString());	// Object toSting() 재정의
 		
-		
 		String str1="AAA";
 		String str2="AAA";
 		System.out.println("str1:" +str1.toString());
@@ -37,12 +36,8 @@ public class Ex05_String {
 		str5 += "E";
 		str5 += "F";
 		
-		str5 = "A";
+		//str5 = "A";
 		System.out.println(str5);
-		
-		
-		
-		
 		
 	}
 }

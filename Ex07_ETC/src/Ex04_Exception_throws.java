@@ -36,13 +36,5 @@ public class Ex04_Exception_throws {
 		}
 		
 		
-		
-		
-		
-		
-		
-		
-		
-		
 	}
 }
