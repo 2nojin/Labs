@@ -39,17 +39,17 @@ public class BMICheck {
 		}//while
 	}// main
 
-	private void save() {	//직렬화
+	private void save() { // 직렬화
 		File file = new File("bmi.txt");
-		try{
+		try {
 			FileOutputStream fos = new FileOutputStream(file);
-			ObjectOutputStream oos = new ObjectOutputStream(fos);	//직렬화
-			
+			ObjectOutputStream oos = new ObjectOutputStream(fos); // 직렬화
+
 			oos.writeObject(map);
-			
+
 			oos.close();
 			fos.close();
-		}catch(Exception e){
+		} catch (Exception e) {
 			System.out.println("에러발생!!!");
 			e.printStackTrace();
 		}
