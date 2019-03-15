@@ -1,4 +1,6 @@
-public class Member {
+import java.io.Serializable;
+
+public class Member implements Serializable{
 	private String name;
 	private String phoneNum;
 	private String cardInfo;
@@ -12,4 +14,12 @@ public class Member {
 		this.cardInfo = cardInfo;
 		this.passportNum = passportNum;
 	}
+
+	public String getPwd() {
+		return pwd;
+	}
+	public String getName() {
+		return name;
+	}
+	
 }

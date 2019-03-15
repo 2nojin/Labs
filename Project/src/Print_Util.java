@@ -1,15 +1,61 @@
+import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.GregorianCalendar;
+import java.util.List;
 import java.util.Scanner;
 import java.util.regex.Pattern;
-
+import java.io.*;
 public class Print_Util {
-
 	private static Scanner sc = new Scanner(System.in);
-	
+	private static int day = 0;
+	private static int day1 = 0;
+	private static int day2 = 0;
+	private static Calendar firstDate = null;
+	public static List<Airplane> airplane= new ArrayList();
 	public static void clearScreen() {
 		for (int i = 0; i < 80; i++)
 			System.out.println("");
 	}
-	
+	public static Airplane selectInfo(String select) {
+		System.out.println("[좌석선택]");
+		System.out.println("1.비즈니스석 가격 : "+
+				Print_Util.airplane.get(Integer.parseInt(select)-1).getBusinessPrice() +"만원\n2.이코노미석 가격 : "
+			+  Print_Util.airplane.get(Integer.parseInt(select)-1).getEconomyPrice()+"만원");
+		return Print_Util.airplane.get(Integer.parseInt(select)-1);
+	}
+	public static void toPath(String toDate, String path) {
+		FlightInfo fi= new FlightInfo();
+		for(int i = 0 ; i < fi.ar.size() ; i++) {
+			if(fi.ar.get(i).getDate().equals(toDate) && fi.ar.get(i).getPath().equals(path)) {
+				System.out.printf("%d.[출발날짜 : %s],[출발시간 : %s][비즈니스석 가격 : %d][이코노미석 가격 : %d]\n" 
+						,i+1,fi.ar.get(i).getDate(),
+						fi.ar.get(i).getTime(),
+						fi.ar.get(i).getBusinessPrice(),
+						fi.ar.get(i).getEconomyPrice());
+				airplane.add(fi.ar.get(i));
+			}
+		}
+		System.out.println("예매하실 비행편을 선택해주세요.");
+		
+	}
+	public static boolean ManagerMenuPassword() {
+		System.out.println("암호를 입력하세요.");
+		String managerPwd = sc.nextLine();
+		return managerPwd.equals("0000");
+	}
+	public static void showRoute() {
+		System.out.println("1. 인천 - 도쿄");
+		System.out.println("2. 인천 - 파리");
+		System.out.println("3. 인천 - 토론토");
+		System.out.println("4. 인천 - 런던");
+	}
+	public static void showManagerMenu() {
+		System.out.println("관리자 메뉴");
+		System.out.println("1.일정관리");
+		System.out.println("2.회원목록보기");
+		System.out.println("3.좌석가격 재설정");
+		System.out.println("0.메인메뉴로 돌아가기");
+	}
 	public static void showMenu() {
 		System.out.println("노진에어 좌석 예약 프로그램");
 		System.out.println("1. 회원가입");
@@ -17,12 +63,52 @@ public class Print_Util {
 		System.out.println("3. 종료");
 	}
 	public static void logIn() {
+		File f = null;
+		FileInputStream fr = null;
+		BufferedInputStream br = null;
+		ObjectInputStream ois = null;
 		System.out.println("**로그인**");
-		System.out.println("회원이름 : ");
-		String name = sc.nextLine();
+		System.out.println("여권번호 : ");
+		String passportNum = sc.nextLine();
 		System.out.println("비밀번호 : ");
 		String pwd = sc.nextLine();
-	}
+
+		Member users = null;
+
+		try {
+			f = new File("C:\\Temp\\Members\\" + passportNum + ".txt");
+
+			if (f.exists()) { // 파일이 만약에 존재할 경우
+				fr = new FileInputStream("C:\\Temp\\Members\\" + passportNum + ".txt");
+				br = new BufferedInputStream(fr);
+				ois = new ObjectInputStream(br);
+				users = (Member)ois.readObject();
+					if (users.getPwd().equals(pwd)) {
+						System.out.println("로그인 중입니다.");
+					}  else {
+						System.out.println("여권번호 또는 비밀번호를 다시 입력해주세요.");
+						logIn();
+					}
+
+				}else {
+					System.out.println("회원정보가 존재하지 않습니다.");
+					logIn();
+				}
+			
+
+		} catch (Exception e) {
+			e.printStackTrace();
+			logIn();
+		} finally {
+			try {
+				ois.close();
+				br.close();
+				fr.close();
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+		}
+		}
 	public static void logInMenu() {
 		System.out.println("1. 예매하기");
 		System.out.println("2. 예매확인");
@@ -49,34 +135,50 @@ public class Print_Util {
 			System.out.println("여권번호\t: ");
 			passportNum = sc.nextLine();
 			form = "([a-zA-Z]{1}|[a-zA-Z]{2})\\d{8}";
-			
+
+			while (true) {
+				File f = new File("C:\\Temp\\Members\\" + passportNum + ".txt");
+				if (f.exists()) {
+					System.out.println("존재하는 여권번호입니다. 다시 입력해주세요");
+					System.out.println("여권번호\t: ");
+					passportNum = sc.nextLine();
+					form = "([a-zA-Z]{1}|[a-zA-Z]{2})\\d{8}";
+				} else {
+					break;
+				}
+			}
 			if (!Pattern.matches(form, passportNum)) {
 				System.out.println("형식이 올바르지 않습니다. 다시 입력하세요.");
 			} else {
 				break;
 			}
+
 		}
-		while (true) {
-			System.out.println("핸드폰번호\t : ");
-			phoneNum = sc.nextLine();
-			form = "(010)-\\d{4}-\\d{4}";
-			if (!Pattern.matches(form, phoneNum)) {
-				System.out.println("형식이 올바르지 않습니다. 다시 입력하세요.");
-			} else {
-				break;
-			}
-		}
-		while (true) {
-			System.out.println("카드번호\t : ");
-			cardInfo = sc.nextLine();
-			form = "^\\d{4}-?\\d{4}-?\\d{4}-?\\d{4}$";
-			if (!Pattern.matches(form, cardInfo)) {
-				System.out.println("형식이 올바르지 않습니다. 다시 입력하세요.");
-			} else {
-				break;
-			}
-		}
-		while(true) {
+	
+	    while (true) {
+            System.out.println("핸드폰번호(ex.010-0000-0000) : ");
+            phoneNum = sc.nextLine();
+            form = "(010)-\\d{4}-\\d{4}";
+            if (!Pattern.matches(form, phoneNum)) {
+                if(!phoneNum.contains("-")) {
+                    System.out.println("하이픈을 넣어 다시 입력하세요.");
+                }else {System.out.println("형식이 올바르지 않습니다. 다시 입력하세요.");}                
+            } else {
+                break;
+            }
+        }
+	    while (true) {
+            System.out.println("카드번호(ex.0000-1111-2222-3333)\t : ");
+            cardInfo = sc.nextLine();
+            form = "^\\d{4}-?\\d{4}-?\\d{4}-?\\d{4}$";
+            if (!Pattern.matches(form, cardInfo)) {
+                if(!cardInfo.contains("-")) {
+                    System.out.println("하이픈을 넣어 다시 입력하세요.");
+                }else { System.out.println("형식이 올바르지 않습니다. 다시 입력하세요.");}
+            } else {
+                break;
+            }
+        }while(true) {
 			System.out.println("비밀번호\t : ");
 			pwd = sc.nextLine();
 			form = "^(?=.*[a-zA-Z])(?=.*\\d)[A-Za-z\\d]{8,16}$";
@@ -86,11 +188,156 @@ public class Print_Util {
 				break;
 			}
 		}
-		return new Member(name, phoneNum, cardInfo, passportNum, pwd);
+		
+		
+		String pathDirectory = "C:\\Temp\\Members";
+		File Folder = new File(pathDirectory);
+		if (!Folder.exists()) {
+			try{
+			    Folder.mkdir(); 
+			    System.out.println("Members 폴더가 생성되었습니다.");
+		        } 
+		        catch(Exception e){
+			    e.getStackTrace();
+			}        
+	   }
+	    	
+		Member m = new Member(name, phoneNum, cardInfo, passportNum, pwd);
+
+		try{
+			String pathFile = "C:\\Temp\\Members\\"+ passportNum +".txt";
+			File file = new File(pathFile);
+			FileOutputStream fos = new FileOutputStream(file);
+			ObjectOutputStream oos = new ObjectOutputStream(fos);
+			oos.writeObject(m); 
+			oos.close();
+			fos.close();
+			System.out.println("회원가입이 완료되었습니다.");
+			
+		}catch(Exception e){
+			System.out.println("에러발생!!!");
+			e.printStackTrace();
+		}
+		
+		enter();
+		return m;
+		
+		
+	}	
+	public static void enter() {
+		System.out.println("아무키나 입력하시면 메인화면으로 돌아갑니다.");
+		sc.nextLine();
+	}
+	public static String whatWay() {
+		System.out.println("1. 왕복 2. 편도");
+		String select = sc.nextLine();
+		return select.equals("1")||select.equals("2") ? select : "잘못된 번호입니다. 다시 입력하세요\n"+whatWay(); 
+	}
+	public static String checkDate() {
+		GregorianCalendar today = new GregorianCalendar();
+		int year = today.get(today.YEAR);
+		int month = today.get(today.MONTH) + 1;
+		int day = today.get(today.DAY_OF_MONTH);
+		
+		Calendar toDay = Calendar.getInstance();
+		Calendar today2 = Calendar.getInstance();
+		toDay.set(Calendar2.year, Calendar2.month, Print_Util.day1);
+		today2.set(year, month, day);
+		firstDate = toDay;
+
+		
+		return today2.compareTo(toDay) == -1 || today2.compareTo(toDay )==0 ? Calendar2.year+"/"+Calendar2.month+"/"+Print_Util.day1 : "오늘이나 오늘 이후날짜를 선택해주세요.";
+	}
+	public static String checkDate2(String toDate) {
+		GregorianCalendar today = new GregorianCalendar();
+		int year = today.get(today.YEAR);
+		int month = today.get(today.MONTH) + 1;
+		int day = today.get(today.DAY_OF_MONTH);
+		
+		Calendar toDay = Calendar.getInstance();
+		Calendar fromDay = Calendar.getInstance();
+		Calendar today2 = Calendar.getInstance();
+		toDay.set(Calendar2.year, Calendar2.month, Print_Util.day1);
+		today2.set(year, month, day);
+		System.out.println("[출발날짜 : " + toDate + "] ,"
+				+                "[도착날짜 : " + Calendar2.year +"/"+Calendar2.month+"/"+ Print_Util.day2 + "]");
+		return toDay.compareTo(firstDate) == 1 || toDay.compareTo(firstDate) == 0  ? Calendar2.year+"/"+Calendar2.month+"/"+Print_Util.day2: "출발날짜나 출발날짜 이후날짜를 선택해주세요.";
 	}
 	public static void showCal() {
-		Calendar.input();
-    	Calendar.output(Calendar.year, Calendar.month);
-    	System.out.println("예매할 날짜의 일을 입력하세요.");
+		Calendar2.input();
+    	Calendar2.output(Calendar2.year, Calendar2.month);
+    	while(true) {
+    		System.out.println("예매할 날짜의 일을 입력하세요.");
+    		day1 = Integer.parseInt(sc.nextLine());
+    		if(day1 >= 1 && day1 <= 31) {
+    			break;
+    		}else {
+    			System.out.println("잘못된 날짜입니다.");
+    		}
+    	}	
+	}
+	public static int inputDay() {
+		int day = Integer.parseInt(sc.nextLine());
+		return day;
+	}
+	public static void showCal2() {
+		Calendar2.input();
+    	Calendar2.output(Calendar2.year, Calendar2.month);
+    	while(true) {
+    		System.out.println("예매할 날짜의 일을 입력하세요.");
+    		while(true) {
+    			day2 = inputDay();
+    			if(day2 >= day1) {
+    				break;
+    			}
+    			System.out.println("출발날짜 혹은 출발날짜 이후 날짜를 선택해주세요.");
+    		}
+    		if(day2 >= 1 && day2 <= 31) {
+    			break;
+    		}else {
+    			System.out.println("잘못된 날짜입니다.");
+    		}
+    	}	
+	}
+	public static void MemberList() {
+		File f = null;
+		String name = null;
+		int count = 0;
+
+
+		FileInputStream fs = null;
+		BufferedInputStream bis = null;
+		ObjectInputStream ois = null;
+
+		String path = "C:\\Temp\\Members\\";
+		String line = "";
+		Member users = null;
+		try {
+			f = new File(path);
+			File[] files = f.listFiles(); // files에는 파일과 디렉터리가 들어있음
+			System.out.println("   회원이름");
+			
+			for (int i = 0; i < files.length; i++) {
+
+				String name2 = files[i].getName();
+				fs = new FileInputStream(path + name2);
+				bis = new BufferedInputStream(fs);
+				ois = new ObjectInputStream(bis);
+				count++;
+				users = (Member) ois.readObject();
+				System.out.println(count+". ["+users.getName()+"]");
+			}
+			System.out.printf("총 회원 수는 %d명입니다.\n",count);
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+		} finally {
+			try {
+				ois.close();
+				bis.close();
+				fs.close();
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+		}
 	}
 }

@@ -1,5 +1,5 @@
 import java.util.Scanner; 
-public class Calendar {
+public class Calendar2 {
     static int year;
     static int month;
     static String[] days={"Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"};
@@ -96,6 +96,4 @@ public class Calendar {
             return false;
         }
     }
-   
-
 }

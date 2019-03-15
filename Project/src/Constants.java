@@ -10,4 +10,16 @@ public interface Constants {
     String LOG_OUT="4";
     String EXIT2="5";
     
+    String SCHEDULE = "1";
+    String MEMBER_LIST = "2";
+    String SEAT_PRICE_RESET = "3";
+    String RETURN = "0";
+    
+    String TWO_WAY = "1";
+    String ONE_WAY = "2";
+    
+    String INCHEON_TOKYO = "1";
+    String INCHEON_PARIS = "2";
+    String INCHEON_TORONTO = "3";
+    String INCHEON_LONDON = "4";
 }
