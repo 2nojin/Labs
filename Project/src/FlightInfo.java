@@ -2,154 +2,423 @@ import java.io.Serializable;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
+
 public class FlightInfo implements Serializable {
-    private String date;
-    private String time;
-    Airplane airplane ;
-    Route r = new Route();
-    public static List<Airplane> ar = new ArrayList();
-    
-    public void setSchedule() {
-        ar.add(r.Incheon_Tokyo_Large("2019/4/6", "09:00"));
-        ar.add(r.Incheon_Tokyo_Medium("2019/4/6", "10:00"));
-        ar.add(r.Incheon_Tokyo_Small("2019/4/6", "11:00"));
-        ar.add(r.Incheon_London_Large("2019/4/6", "12:00"));
-        ar.add(r.Incheon_London_Large("2019/4/6", "13:00"));
-        ar.add(r.Incheon_London_Large("2019/4/6", "14:00"));
-        ar.add(r.Incheon_Paris_Large("2019/04/06", "15:00"));
-        ar.add(r.Incheon_Paris_Large("2019/04/06", "16:00"));
-        ar.add(r.Incheon_Paris_Large("2019/04/06", "17:00"));
-        
-        ar.add(r.Incheon_Toronto_Large("2019/04/06", "18:00"));
-        ar.add(r.Incheon_Toronto_Large("2019/04/06", "19:00"));
-        ar.add(r.Incheon_Toronto_Large("2019/04/06", "20:00"));
-        
-        ar.add(r.Incheon_Tokyo_Large("2019/04/07", "09:00"));
-        ar.add(r.Incheon_Tokyo_Medium("2019/04/07", "10:00"));
-        ar.add(r.Incheon_Tokyo_Small("2019/04/07", "11:00"));
-        ar.add(r.Incheon_London_Large("2019/04/07", "12:00"));
-        ar.add(r.Incheon_London_Large("2019/04/07", "13:00"));
-        ar.add(r.Incheon_London_Large("2019/04/07", "14:00"));
-        ar.add(r.Incheon_Paris_Large("2019/04/07", "15:00"));
-        ar.add(r.Incheon_Paris_Large("2019/04/07", "16:00"));
-        ar.add(r.Incheon_Paris_Large("2019/04/07", "17:00"));
-        
-        ar.add(r.Incheon_Toronto_Large("2019/04/07", "18:00"));
-        ar.add(r.Incheon_Toronto_Large("2019/04/07", "19:00"));
-        ar.add(r.Incheon_Toronto_Large("2019/04/07", "20:00"));
-        
-        ar.add(r.Incheon_Tokyo_Large("2019/04/08", "09:00"));
-        ar.add(r.Incheon_Tokyo_Medium("2019/04/08", "10:00"));
-        ar.add(r.Incheon_Tokyo_Small("2019/04/08", "11:00"));
-        ar.add(r.Incheon_London_Large("2019/04/08", "12:00"));
-        ar.add(r.Incheon_London_Large("2019/04/08", "13:00"));
-        ar.add(r.Incheon_London_Large("2019/04/08", "14:00"));
-        ar.add(r.Incheon_Paris_Large("2019/04/08", "15:00"));
-        ar.add(r.Incheon_Paris_Large("2019/04/08", "16:00"));
-        ar.add(r.Incheon_Paris_Large("2019/04/08", "17:00"));
-        
-        ar.add(r.Incheon_Toronto_Large("2019/04/08", "18:00"));
-        ar.add(r.Incheon_Toronto_Large("2019/04/08", "19:00"));
-        ar.add(r.Incheon_Toronto_Large("2019/04/08", "20:00"));
-        
-        ar.add(r.Incheon_Tokyo_Large("2019/04/09", "09:00"));
-        ar.add(r.Incheon_Tokyo_Medium("2019/04/09", "10:00"));
-        ar.add(r.Incheon_Tokyo_Small("2019/04/09", "11:00"));
-        ar.add(r.Incheon_London_Large("2019/04/09", "12:00"));
-        ar.add(r.Incheon_London_Large("2019/04/09", "13:00"));
-        ar.add(r.Incheon_London_Large("2019/04/09", "14:00"));
-        ar.add(r.Incheon_Paris_Large("2019/04/09", "15:00"));
-        ar.add(r.Incheon_Paris_Large("2019/04/09", "16:00"));
-        ar.add(r.Incheon_Paris_Large("2019/04/09", "17:00"));
-        
-        ar.add(r.Incheon_Toronto_Large("2019/04/09", "18:00"));
-        ar.add(r.Incheon_Toronto_Large("2019/04/09", "19:00"));
-        ar.add(r.Incheon_Toronto_Large("2019/04/09", "20:00"));
-        
-        ar.add(r.Incheon_Tokyo_Large("2019/04/10", "09:00"));
-        ar.add(r.Incheon_Tokyo_Medium("2019/04/10", "10:00"));
-        ar.add(r.Incheon_Tokyo_Small("2019/04/10", "11:00"));
-        ar.add(r.Incheon_London_Large("2019/04/10", "12:00"));
-        ar.add(r.Incheon_London_Large("2019/04/10", "13:00"));
-        ar.add(r.Incheon_London_Large("2019/04/10", "14:00"));
-        ar.add(r.Incheon_Paris_Large("2019/04/10", "15:00"));
-        ar.add(r.Incheon_Paris_Large("2019/04/10", "16:00"));
-        ar.add(r.Incheon_Paris_Large("2019/04/10", "17:00"));
-        
-        ar.add(r.Incheon_Toronto_Large("2019/04/10", "18:00"));
-        ar.add(r.Incheon_Toronto_Large("2019/04/10", "19:00"));
-        ar.add(r.Incheon_Toronto_Large("2019/04/10", "20:00"));
-        
-        ar.add(r.Incheon_Tokyo_Large("2019/04/11", "09:00"));
-        ar.add(r.Incheon_Tokyo_Medium("2019/04/11", "10:00"));
-        ar.add(r.Incheon_Tokyo_Small("2019/04/11", "11:00"));
-        ar.add(r.Incheon_London_Large("2019/04/11", "12:00"));
-        ar.add(r.Incheon_London_Large("2019/04/11", "13:00"));
-        ar.add(r.Incheon_London_Large("2019/04/11", "14:00"));
-        ar.add(r.Incheon_Paris_Large("2019/04/11", "15:00"));
-        ar.add(r.Incheon_Paris_Large("2019/04/11", "16:00"));
-        ar.add(r.Incheon_Paris_Large("2019/04/11", "17:00"));
-        
-        ar.add(r.Incheon_Toronto_Large("2019/04/11", "18:00"));
-        ar.add(r.Incheon_Toronto_Large("2019/04/11", "19:00"));
-        ar.add(r.Incheon_Toronto_Large("2019/04/11", "20:00"));
-        
-        ar.add(r.Incheon_Tokyo_Large("2019/04/13", "09:00"));
-        ar.add(r.Incheon_Tokyo_Medium("2019/04/13", "10:00"));
-        ar.add(r.Incheon_Tokyo_Small("2019/04/13", "11:00"));
-        ar.add(r.Incheon_London_Large("2019/04/13", "12:00"));
-        ar.add(r.Incheon_London_Large("2019/04/13", "13:00"));
-        ar.add(r.Incheon_London_Large("2019/04/13", "14:00"));
-        ar.add(r.Incheon_Paris_Large("2019/04/13", "15:00"));
-        ar.add(r.Incheon_Paris_Large("2019/04/13", "16:00"));
-        ar.add(r.Incheon_Paris_Large("2019/04/13", "17:00"));
-    
-        ar.add(r.Incheon_Toronto_Large("2019/04/13", "18:00"));
-        ar.add(r.Incheon_Toronto_Large("2019/04/13", "19:00"));
-        ar.add(r.Incheon_Toronto_Large("2019/04/13", "20:00"));
-        
-        ar.add(r.Incheon_Tokyo_Large("2019/04/14", "09:00"));
-        ar.add(r.Incheon_Tokyo_Medium("2019/04/14", "10:00"));
-        ar.add(r.Incheon_Tokyo_Small("2019/04/14", "11:00"));
-        ar.add(r.Incheon_London_Large("2019/04/14", "12:00"));
-        ar.add(r.Incheon_London_Large("2019/04/14", "13:00"));
-        ar.add(r.Incheon_London_Large("2019/04/14", "14:00"));
-        ar.add(r.Incheon_Paris_Large("2019/04/14", "15:00"));
-        ar.add(r.Incheon_Paris_Large("2019/04/14", "16:00"));
-        ar.add(r.Incheon_Paris_Large("2019/04/14", "17:00"));
-        
-        ar.add(r.Incheon_Toronto_Large("2019/04/14", "18:00"));
-        ar.add(r.Incheon_Toronto_Large("2019/04/14", "19:00"));
-        ar.add(r.Incheon_Toronto_Large("2019/04/14", "20:00"));
-        
-        ar.add(r.Incheon_Tokyo_Large("2019/04/15", "09:00"));
-        ar.add(r.Incheon_Tokyo_Medium("2019/04/15", "10:00"));
-        ar.add(r.Incheon_Tokyo_Small("2019/04/15", "11:00"));
-        ar.add(r.Incheon_London_Large("2019/04/15", "12:00"));
-        ar.add(r.Incheon_London_Large("2019/04/15", "13:00"));
-        ar.add(r.Incheon_London_Large("2019/04/15", "14:00"));
-        ar.add(r.Incheon_Paris_Large("2019/04/15", "15:00"));
-        ar.add(r.Incheon_Paris_Large("2019/04/15", "16:00"));
-        ar.add(r.Incheon_Paris_Large("2019/04/15", "17:00"));
-        
-        ar.add(r.Incheon_Toronto_Large("2019/04/15", "18:00"));
-        ar.add(r.Incheon_Toronto_Large("2019/04/15", "19:00"));
-        ar.add(r.Incheon_Toronto_Large("2019/04/15", "20:00"));
-    }
-    
-    public void setDate(String date) {
-        this.date = date;
-    }
-    public String getTime() {
-        return time;
-    }
-    public void setTime(String time) {
-        this.time = time;
-    }
-    public Airplane getAirplane() {
-        return airplane;
-    }
-    public void setAirplane(Airplane airplane) {
-        this.airplane = airplane;
-    }
+   private String date;
+   private String time;
+   Airplane airplane ;
+   Route r = new Route();
+   public static List<Airplane> ar = new ArrayList();
+   
+   public void setSchedule() {
+      ar.add(r.Incheon_Tokyo_Large("2019/3/18", "09:00"));
+      ar.add(r.Incheon_Tokyo_Medium("2019/3/18", "10:00"));
+      ar.add(r.Incheon_Tokyo_Small("2019/3/18", "11:00"));
+      ar.add(r.Incheon_London_Large("2019/3/18", "12:00"));
+      ar.add(r.Incheon_London_Medium("2019/3/18", "13:00"));
+      ar.add(r.Incheon_London_Small("2019/3/18", "14:00"));
+      ar.add(r.Incheon_Paris_Large("2019/3/18", "15:00"));
+      ar.add(r.Incheon_Paris_Medium("2019/3/18", "16:00"));
+      ar.add(r.Incheon_Paris_Small("2019/3/18", "17:00"));
+      ar.add(r.Incheon_Toronto_Large("2019/3/18", "18:00"));
+      ar.add(r.Incheon_Toronto_Medium("2019/3/18", "19:00"));
+      ar.add(r.Incheon_Toronto_Small("2019/3/18", "20:00"));
+      ar.add(r.Tokyo_Incheon_Large("2019/3/18", "09:00"));
+      ar.add(r.Tokyo_Incheon_Medium("2019/3/18", "10:00"));
+      ar.add(r.Tokyo_Incheon_Small("2019/3/18", "11:00"));
+      ar.add(r.London_Incheon_Large("2019/3/18", "12:00"));
+      ar.add(r.London_Incheon_Medium("2019/3/18", "13:00"));
+      ar.add(r.London_Incheon_Small("2019/3/18", "14:00"));
+      ar.add(r.Paris_Incheon_Large("2019/3/18", "15:00"));
+      ar.add(r.Paris_Incheon_Medium("2019/3/18", "16:00"));
+      ar.add(r.Paris_Incheon_Small("2019/3/18", "17:00"));
+      ar.add(r.Toronto_Incheon_Large("2019/3/18", "18:00"));
+      ar.add(r.Toronto_Incheon_Medium("2019/3/18", "19:00"));
+      ar.add(r.Toronto_Incheon_Small("2019/3/18", "20:00"));
+
+      // 3/19
+      ar.add(r.Incheon_Tokyo_Large("2019/3/19", "09:00"));
+      ar.add(r.Incheon_Tokyo_Medium("2019/3/19", "10:00"));
+      ar.add(r.Incheon_Tokyo_Small("2019/3/19", "11:00"));
+      ar.add(r.Incheon_London_Large("2019/3/19", "12:00"));
+      ar.add(r.Incheon_London_Medium("2019/3/19", "13:00"));
+      ar.add(r.Incheon_London_Small("2019/3/19", "14:00"));
+      ar.add(r.Incheon_Paris_Large("2019/3/19", "15:00"));
+      ar.add(r.Incheon_Paris_Medium("2019/3/19", "16:00"));
+      ar.add(r.Incheon_Paris_Small("2019/3/19", "17:00"));
+      ar.add(r.Incheon_Toronto_Large("2019/3/19", "18:00"));
+      ar.add(r.Incheon_Toronto_Medium("2019/3/19", "19:00"));
+      ar.add(r.Incheon_Toronto_Small("2019/3/19", "20:00"));
+      ar.add(r.Tokyo_Incheon_Large("2019/3/19", "09:00"));
+      ar.add(r.Tokyo_Incheon_Medium("2019/3/19", "10:00"));
+      ar.add(r.Tokyo_Incheon_Small("2019/3/19", "11:00"));
+      ar.add(r.London_Incheon_Large("2019/3/19", "12:00"));
+      ar.add(r.London_Incheon_Medium("2019/3/19", "13:00"));
+      ar.add(r.London_Incheon_Small("2019/3/19", "14:00"));
+      ar.add(r.Paris_Incheon_Large("2019/3/19", "15:00"));
+      ar.add(r.Paris_Incheon_Medium("2019/3/19", "16:00"));
+      ar.add(r.Paris_Incheon_Small("2019/3/19", "17:00"));
+      ar.add(r.Toronto_Incheon_Large("2019/3/19", "18:00"));
+      ar.add(r.Toronto_Incheon_Medium("2019/3/19", "19:00"));
+      ar.add(r.Toronto_Incheon_Small("2019/3/19", "20:00"));
+
+      // 3/20
+      ar.add(r.Incheon_Tokyo_Large("2019/3/20", "09:00"));
+      ar.add(r.Incheon_Tokyo_Medium("2019/3/20", "10:00"));
+      ar.add(r.Incheon_Tokyo_Small("2019/3/20", "11:00"));
+      ar.add(r.Incheon_London_Large("2019/3/20", "12:00"));
+      ar.add(r.Incheon_London_Medium("2019/3/20", "13:00"));
+      ar.add(r.Incheon_London_Small("2019/3/20", "14:00"));
+      ar.add(r.Incheon_Paris_Large("2019/3/20", "15:00"));
+      ar.add(r.Incheon_Paris_Medium("2019/3/20", "16:00"));
+      ar.add(r.Incheon_Paris_Small("2019/3/20", "17:00"));
+      ar.add(r.Incheon_Toronto_Large("2019/3/20", "18:00"));
+      ar.add(r.Incheon_Toronto_Medium("2019/3/20", "19:00"));
+      ar.add(r.Incheon_Toronto_Small("2019/3/20", "20:00"));
+      ar.add(r.Tokyo_Incheon_Large("2019/3/20", "09:00"));
+      ar.add(r.Tokyo_Incheon_Medium("2019/3/20", "10:00"));
+      ar.add(r.Tokyo_Incheon_Small("2019/3/20", "11:00"));
+      ar.add(r.London_Incheon_Large("2019/3/20", "12:00"));
+      ar.add(r.London_Incheon_Medium("2019/3/20", "13:00"));
+      ar.add(r.London_Incheon_Small("2019/3/20", "14:00"));
+      ar.add(r.Paris_Incheon_Large("2019/3/20", "15:00"));
+      ar.add(r.Paris_Incheon_Medium("2019/3/20", "16:00"));
+      ar.add(r.Paris_Incheon_Small("2019/3/20", "17:00"));
+      ar.add(r.Toronto_Incheon_Large("2019/3/20", "18:00"));
+      ar.add(r.Toronto_Incheon_Medium("2019/3/20", "19:00"));
+      ar.add(r.Toronto_Incheon_Small("2019/3/20", "20:00"));
+
+      // 3/21
+      ar.add(r.Incheon_Tokyo_Large("2019/3/21", "09:00"));
+      ar.add(r.Incheon_Tokyo_Medium("2019/3/21", "10:00"));
+      ar.add(r.Incheon_Tokyo_Small("2019/3/21", "11:00"));
+      ar.add(r.Incheon_London_Large("2019/3/21", "12:00"));
+      ar.add(r.Incheon_London_Medium("2019/3/21", "13:00"));
+      ar.add(r.Incheon_London_Small("2019/3/21", "14:00"));
+      ar.add(r.Incheon_Paris_Large("2019/3/21", "15:00"));
+      ar.add(r.Incheon_Paris_Medium("2019/3/21", "16:00"));
+      ar.add(r.Incheon_Paris_Small("2019/3/21", "17:00"));
+      ar.add(r.Incheon_Toronto_Large("2019/3/21", "18:00"));
+      ar.add(r.Incheon_Toronto_Medium("2019/3/21", "19:00"));
+      ar.add(r.Incheon_Toronto_Small("2019/3/21", "20:00"));
+      ar.add(r.Tokyo_Incheon_Large("2019/3/21", "09:00"));
+      ar.add(r.Tokyo_Incheon_Medium("2019/3/21", "10:00"));
+      ar.add(r.Tokyo_Incheon_Small("2019/3/21", "11:00"));
+      ar.add(r.London_Incheon_Large("2019/3/21", "12:00"));
+      ar.add(r.London_Incheon_Medium("2019/3/21", "13:00"));
+      ar.add(r.London_Incheon_Small("2019/3/21", "14:00"));
+      ar.add(r.Paris_Incheon_Large("2019/3/21", "15:00"));
+      ar.add(r.Paris_Incheon_Medium("2019/3/21", "16:00"));
+      ar.add(r.Paris_Incheon_Small("2019/3/21", "17:00"));
+      ar.add(r.Toronto_Incheon_Large("2019/3/21", "18:00"));
+      ar.add(r.Toronto_Incheon_Medium("2019/3/21", "19:00"));
+      ar.add(r.Toronto_Incheon_Small("2019/3/21", "20:00"));
+
+      // 3/22
+      ar.add(r.Incheon_Tokyo_Large("2019/3/22", "09:00"));
+      ar.add(r.Incheon_Tokyo_Medium("2019/3/22", "10:00"));
+      ar.add(r.Incheon_Tokyo_Small("2019/3/22", "11:00"));
+      ar.add(r.Incheon_London_Large("2019/3/22", "12:00"));
+      ar.add(r.Incheon_London_Medium("2019/3/22", "13:00"));
+      ar.add(r.Incheon_London_Small("2019/3/22", "14:00"));
+      ar.add(r.Incheon_Paris_Large("2019/3/22", "15:00"));
+      ar.add(r.Incheon_Paris_Medium("2019/3/22", "16:00"));
+      ar.add(r.Incheon_Paris_Small("2019/3/22", "17:00"));
+      ar.add(r.Incheon_Toronto_Large("2019/3/22", "18:00"));
+      ar.add(r.Incheon_Toronto_Medium("2019/3/22", "19:00"));
+      ar.add(r.Incheon_Toronto_Small("2019/3/22", "20:00"));
+      ar.add(r.Tokyo_Incheon_Large("2019/3/22", "09:00"));
+      ar.add(r.Tokyo_Incheon_Medium("2019/3/22", "10:00"));
+      ar.add(r.Tokyo_Incheon_Small("2019/3/22", "11:00"));
+      ar.add(r.London_Incheon_Large("2019/3/22", "12:00"));
+      ar.add(r.London_Incheon_Medium("2019/3/22", "13:00"));
+      ar.add(r.London_Incheon_Small("2019/3/22", "14:00"));
+      ar.add(r.Paris_Incheon_Large("2019/3/22", "15:00"));
+      ar.add(r.Paris_Incheon_Medium("2019/3/22", "16:00"));
+      ar.add(r.Paris_Incheon_Small("2019/3/22", "17:00"));
+      ar.add(r.Toronto_Incheon_Large("2019/3/22", "18:00"));
+      ar.add(r.Toronto_Incheon_Medium("2019/3/22", "19:00"));
+      ar.add(r.Toronto_Incheon_Small("2019/3/22", "20:00"));
+
+      // 3/23
+      ar.add(r.Incheon_Tokyo_Large("2019/3/23", "09:00"));
+      ar.add(r.Incheon_Tokyo_Medium("2019/3/23", "10:00"));
+      ar.add(r.Incheon_Tokyo_Small("2019/3/23", "11:00"));
+      ar.add(r.Incheon_London_Large("2019/3/23", "12:00"));
+      ar.add(r.Incheon_London_Medium("2019/3/23", "13:00"));
+      ar.add(r.Incheon_London_Small("2019/3/23", "14:00"));
+      ar.add(r.Incheon_Paris_Large("2019/3/23", "15:00"));
+      ar.add(r.Incheon_Paris_Medium("2019/3/23", "16:00"));
+      ar.add(r.Incheon_Paris_Small("2019/3/23", "17:00"));
+      ar.add(r.Incheon_Toronto_Large("2019/3/23", "18:00"));
+      ar.add(r.Incheon_Toronto_Medium("2019/3/23", "19:00"));
+      ar.add(r.Incheon_Toronto_Small("2019/3/23", "20:00"));
+      ar.add(r.Tokyo_Incheon_Large("2019/3/23", "09:00"));
+      ar.add(r.Tokyo_Incheon_Medium("2019/3/23", "10:00"));
+      ar.add(r.Tokyo_Incheon_Small("2019/3/23", "11:00"));
+      ar.add(r.London_Incheon_Large("2019/3/23", "12:00"));
+      ar.add(r.London_Incheon_Medium("2019/3/23", "13:00"));
+      ar.add(r.London_Incheon_Small("2019/3/23", "14:00"));
+      ar.add(r.Paris_Incheon_Large("2019/3/23", "15:00"));
+      ar.add(r.Paris_Incheon_Medium("2019/3/23", "16:00"));
+      ar.add(r.Paris_Incheon_Small("2019/3/23", "17:00"));
+      ar.add(r.Toronto_Incheon_Large("2019/3/23", "18:00"));
+      ar.add(r.Toronto_Incheon_Medium("2019/3/23", "19:00"));
+      ar.add(r.Toronto_Incheon_Small("2019/3/23", "20:00"));
+
+      // 3/24
+      ar.add(r.Incheon_Tokyo_Large("2019/3/24", "09:00"));
+      ar.add(r.Incheon_Tokyo_Medium("2019/3/24", "10:00"));
+      ar.add(r.Incheon_Tokyo_Small("2019/3/24", "11:00"));
+      ar.add(r.Incheon_London_Large("2019/3/24", "12:00"));
+      ar.add(r.Incheon_London_Medium("2019/3/24", "13:00"));
+      ar.add(r.Incheon_London_Small("2019/3/24", "14:00"));
+      ar.add(r.Incheon_Paris_Large("2019/3/24", "15:00"));
+      ar.add(r.Incheon_Paris_Medium("2019/3/24", "16:00"));
+      ar.add(r.Incheon_Paris_Small("2019/3/24", "17:00"));
+      ar.add(r.Incheon_Toronto_Large("2019/3/24", "18:00"));
+      ar.add(r.Incheon_Toronto_Medium("2019/3/24", "19:00"));
+      ar.add(r.Incheon_Toronto_Small("2019/3/24", "20:00"));
+      ar.add(r.Tokyo_Incheon_Large("2019/3/24", "09:00"));
+      ar.add(r.Tokyo_Incheon_Medium("2019/3/24", "10:00"));
+      ar.add(r.Tokyo_Incheon_Small("2019/3/24", "11:00"));
+      ar.add(r.London_Incheon_Large("2019/3/24", "12:00"));
+      ar.add(r.London_Incheon_Medium("2019/3/24", "13:00"));
+      ar.add(r.London_Incheon_Small("2019/3/24", "14:00"));
+      ar.add(r.Paris_Incheon_Large("2019/3/24", "15:00"));
+      ar.add(r.Paris_Incheon_Medium("2019/3/24", "16:00"));
+      ar.add(r.Paris_Incheon_Small("2019/3/24", "17:00"));
+      ar.add(r.Toronto_Incheon_Large("2019/3/24", "18:00"));
+      ar.add(r.Toronto_Incheon_Medium("2019/3/24", "19:00"));
+      ar.add(r.Toronto_Incheon_Small("2019/3/24", "20:00"));
+
+      // 3/25
+      ar.add(r.Incheon_Tokyo_Large("2019/3/25", "09:00"));
+      ar.add(r.Incheon_Tokyo_Medium("2019/3/25", "10:00"));
+      ar.add(r.Incheon_Tokyo_Small("2019/3/25", "11:00"));
+      ar.add(r.Incheon_London_Large("2019/3/25", "12:00"));
+      ar.add(r.Incheon_London_Medium("2019/3/25", "13:00"));
+      ar.add(r.Incheon_London_Small("2019/3/25", "14:00"));
+      ar.add(r.Incheon_Paris_Large("2019/3/25", "15:00"));
+      ar.add(r.Incheon_Paris_Medium("2019/3/25", "16:00"));
+      ar.add(r.Incheon_Paris_Small("2019/3/25", "17:00"));
+      ar.add(r.Incheon_Toronto_Large("2019/3/25", "18:00"));
+      ar.add(r.Incheon_Toronto_Medium("2019/3/25", "19:00"));
+      ar.add(r.Incheon_Toronto_Small("2019/3/25", "20:00"));
+      ar.add(r.Tokyo_Incheon_Large("2019/3/25", "09:00"));
+      ar.add(r.Tokyo_Incheon_Medium("2019/3/25", "10:00"));
+      ar.add(r.Tokyo_Incheon_Small("2019/3/25", "11:00"));
+      ar.add(r.London_Incheon_Large("2019/3/25", "12:00"));
+      ar.add(r.London_Incheon_Medium("2019/3/25", "13:00"));
+      ar.add(r.London_Incheon_Small("2019/3/25", "14:00"));
+      ar.add(r.Paris_Incheon_Large("2019/3/25", "15:00"));
+      ar.add(r.Paris_Incheon_Medium("2019/3/25", "16:00"));
+      ar.add(r.Paris_Incheon_Small("2019/3/25", "17:00"));
+      ar.add(r.Toronto_Incheon_Large("2019/3/25", "18:00"));
+      ar.add(r.Toronto_Incheon_Medium("2019/3/25", "19:00"));
+      ar.add(r.Toronto_Incheon_Small("2019/3/25", "20:00"));
+
+      // 3/26
+      ar.add(r.Incheon_Tokyo_Large("2019/3/26", "09:00"));
+      ar.add(r.Incheon_Tokyo_Medium("2019/3/26", "10:00"));
+      ar.add(r.Incheon_Tokyo_Small("2019/3/26", "11:00"));
+      ar.add(r.Incheon_London_Large("2019/3/26", "12:00"));
+      ar.add(r.Incheon_London_Medium("2019/3/26", "13:00"));
+      ar.add(r.Incheon_London_Small("2019/3/26", "14:00"));
+      ar.add(r.Incheon_Paris_Large("2019/3/26", "15:00"));
+      ar.add(r.Incheon_Paris_Medium("2019/3/26", "16:00"));
+      ar.add(r.Incheon_Paris_Small("2019/3/26", "17:00"));
+      ar.add(r.Incheon_Toronto_Large("2019/3/26", "18:00"));
+      ar.add(r.Incheon_Toronto_Medium("2019/3/26", "19:00"));
+      ar.add(r.Incheon_Toronto_Small("2019/3/26", "20:00"));
+      ar.add(r.Tokyo_Incheon_Large("2019/3/26", "09:00"));
+      ar.add(r.Tokyo_Incheon_Medium("2019/3/26", "10:00"));
+      ar.add(r.Tokyo_Incheon_Small("2019/3/26", "11:00"));
+      ar.add(r.London_Incheon_Large("2019/3/26", "12:00"));
+      ar.add(r.London_Incheon_Medium("2019/3/26", "13:00"));
+      ar.add(r.London_Incheon_Small("2019/3/26", "14:00"));
+      ar.add(r.Paris_Incheon_Large("2019/3/26", "15:00"));
+      ar.add(r.Paris_Incheon_Medium("2019/3/26", "16:00"));
+      ar.add(r.Paris_Incheon_Small("2019/3/26", "17:00"));
+      ar.add(r.Toronto_Incheon_Large("2019/3/26", "18:00"));
+      ar.add(r.Toronto_Incheon_Medium("2019/3/26", "19:00"));
+      ar.add(r.Toronto_Incheon_Small("2019/3/26", "20:00"));
+
+      // 3/27
+      ar.add(r.Incheon_Tokyo_Large("2019/3/27", "09:00"));
+      ar.add(r.Incheon_Tokyo_Medium("2019/3/27", "10:00"));
+      ar.add(r.Incheon_Tokyo_Small("2019/3/27", "11:00"));
+      ar.add(r.Incheon_London_Large("2019/3/27", "12:00"));
+      ar.add(r.Incheon_London_Medium("2019/3/27", "13:00"));
+      ar.add(r.Incheon_London_Small("2019/3/27", "14:00"));
+      ar.add(r.Incheon_Paris_Large("2019/3/27", "15:00"));
+      ar.add(r.Incheon_Paris_Medium("2019/3/27", "16:00"));
+      ar.add(r.Incheon_Paris_Small("2019/3/27", "17:00"));
+      ar.add(r.Incheon_Toronto_Large("2019/3/27", "18:00"));
+      ar.add(r.Incheon_Toronto_Medium("2019/3/27", "19:00"));
+      ar.add(r.Incheon_Toronto_Small("2019/3/27", "20:00"));
+      ar.add(r.Tokyo_Incheon_Large("2019/3/27", "09:00"));
+      ar.add(r.Tokyo_Incheon_Medium("2019/3/27", "10:00"));
+      ar.add(r.Tokyo_Incheon_Small("2019/3/27", "11:00"));
+      ar.add(r.London_Incheon_Large("2019/3/27", "12:00"));
+      ar.add(r.London_Incheon_Medium("2019/3/27", "13:00"));
+      ar.add(r.London_Incheon_Small("2019/3/27", "14:00"));
+      ar.add(r.Paris_Incheon_Large("2019/3/27", "15:00"));
+      ar.add(r.Paris_Incheon_Medium("2019/3/27", "16:00"));
+      ar.add(r.Paris_Incheon_Small("2019/3/27", "17:00"));
+      ar.add(r.Toronto_Incheon_Large("2019/3/27", "18:00"));
+      ar.add(r.Toronto_Incheon_Medium("2019/3/27", "19:00"));
+      ar.add(r.Toronto_Incheon_Small("2019/3/27", "20:00"));
+
+      // 3/28
+      ar.add(r.Incheon_Tokyo_Large("2019/3/28", "09:00"));
+      ar.add(r.Incheon_Tokyo_Medium("2019/3/28", "10:00"));
+      ar.add(r.Incheon_Tokyo_Small("2019/3/28", "11:00"));
+      ar.add(r.Incheon_London_Large("2019/3/28", "12:00"));
+      ar.add(r.Incheon_London_Medium("2019/3/28", "13:00"));
+      ar.add(r.Incheon_London_Small("2019/3/28", "14:00"));
+      ar.add(r.Incheon_Paris_Large("2019/3/28", "15:00"));
+      ar.add(r.Incheon_Paris_Medium("2019/3/28", "16:00"));
+      ar.add(r.Incheon_Paris_Small("2019/3/28", "17:00"));
+      ar.add(r.Incheon_Toronto_Large("2019/3/28", "18:00"));
+      ar.add(r.Incheon_Toronto_Medium("2019/3/28", "19:00"));
+      ar.add(r.Incheon_Toronto_Small("2019/3/28", "20:00"));
+      ar.add(r.Tokyo_Incheon_Large("2019/3/28", "09:00"));
+      ar.add(r.Tokyo_Incheon_Medium("2019/3/28", "10:00"));
+      ar.add(r.Tokyo_Incheon_Small("2019/3/28", "11:00"));
+      ar.add(r.London_Incheon_Large("2019/3/28", "12:00"));
+      ar.add(r.London_Incheon_Medium("2019/3/28", "13:00"));
+      ar.add(r.London_Incheon_Small("2019/3/28", "14:00"));
+      ar.add(r.Paris_Incheon_Large("2019/3/28", "15:00"));
+      ar.add(r.Paris_Incheon_Medium("2019/3/28", "16:00"));
+      ar.add(r.Paris_Incheon_Small("2019/3/28", "17:00"));
+      ar.add(r.Toronto_Incheon_Large("2019/3/28", "18:00"));
+      ar.add(r.Toronto_Incheon_Medium("2019/3/28", "19:00"));
+      ar.add(r.Toronto_Incheon_Small("2019/3/28", "20:00"));
+
+      // 3/29
+      ar.add(r.Incheon_Tokyo_Large("2019/3/29", "09:00"));
+      ar.add(r.Incheon_Tokyo_Medium("2019/3/29", "10:00"));
+      ar.add(r.Incheon_Tokyo_Small("2019/3/29", "11:00"));
+      ar.add(r.Incheon_London_Large("2019/3/29", "12:00"));
+      ar.add(r.Incheon_London_Medium("2019/3/29", "13:00"));
+      ar.add(r.Incheon_London_Small("2019/3/29", "14:00"));
+      ar.add(r.Incheon_Paris_Large("2019/3/29", "15:00"));
+      ar.add(r.Incheon_Paris_Medium("2019/3/29", "16:00"));
+      ar.add(r.Incheon_Paris_Small("2019/3/29", "17:00"));
+      ar.add(r.Incheon_Toronto_Large("2019/3/29", "18:00"));
+      ar.add(r.Incheon_Toronto_Medium("2019/3/29", "19:00"));
+      ar.add(r.Incheon_Toronto_Small("2019/3/29", "20:00"));
+      ar.add(r.Tokyo_Incheon_Large("2019/3/29", "09:00"));
+      ar.add(r.Tokyo_Incheon_Medium("2019/3/29", "10:00"));
+      ar.add(r.Tokyo_Incheon_Small("2019/3/29", "11:00"));
+      ar.add(r.London_Incheon_Large("2019/3/29", "12:00"));
+      ar.add(r.London_Incheon_Medium("2019/3/29", "13:00"));
+      ar.add(r.London_Incheon_Small("2019/3/29", "14:00"));
+      ar.add(r.Paris_Incheon_Large("2019/3/29", "15:00"));
+      ar.add(r.Paris_Incheon_Medium("2019/3/29", "16:00"));
+      ar.add(r.Paris_Incheon_Small("2019/3/29", "17:00"));
+      ar.add(r.Toronto_Incheon_Large("2019/3/29", "18:00"));
+      ar.add(r.Toronto_Incheon_Medium("2019/3/29", "19:00"));
+      ar.add(r.Toronto_Incheon_Small("2019/3/29", "20:00"));
+
+      // 3/30
+      ar.add(r.Incheon_Tokyo_Large("2019/3/30", "09:00"));
+      ar.add(r.Incheon_Tokyo_Medium("2019/3/30", "10:00"));
+      ar.add(r.Incheon_Tokyo_Small("2019/3/30", "11:00"));
+      ar.add(r.Incheon_London_Large("2019/3/30", "12:00"));
+      ar.add(r.Incheon_London_Medium("2019/3/30", "13:00"));
+      ar.add(r.Incheon_London_Small("2019/3/30", "14:00"));
+      ar.add(r.Incheon_Paris_Large("2019/3/30", "15:00"));
+      ar.add(r.Incheon_Paris_Medium("2019/3/30", "16:00"));
+      ar.add(r.Incheon_Paris_Small("2019/3/30", "17:00"));
+      ar.add(r.Incheon_Toronto_Large("2019/3/30", "18:00"));
+      ar.add(r.Incheon_Toronto_Medium("2019/3/30", "19:00"));
+      ar.add(r.Incheon_Toronto_Small("2019/3/30", "20:00"));
+      ar.add(r.Tokyo_Incheon_Large("2019/3/30", "09:00"));
+      ar.add(r.Tokyo_Incheon_Medium("2019/3/30", "10:00"));
+      ar.add(r.Tokyo_Incheon_Small("2019/3/30", "11:00"));
+      ar.add(r.London_Incheon_Large("2019/3/30", "12:00"));
+      ar.add(r.London_Incheon_Medium("2019/3/30", "13:00"));
+      ar.add(r.London_Incheon_Small("2019/3/30", "14:00"));
+      ar.add(r.Paris_Incheon_Large("2019/3/30", "15:00"));
+      ar.add(r.Paris_Incheon_Medium("2019/3/30", "16:00"));
+      ar.add(r.Paris_Incheon_Small("2019/3/30", "17:00"));
+      ar.add(r.Toronto_Incheon_Large("2019/3/30", "18:00"));
+      ar.add(r.Toronto_Incheon_Medium("2019/3/30", "19:00"));
+      ar.add(r.Toronto_Incheon_Small("2019/3/30", "20:00"));
+
+      // 3/31
+      ar.add(r.Incheon_Tokyo_Large("2019/3/31", "09:00"));
+      ar.add(r.Incheon_Tokyo_Medium("2019/3/31", "10:00"));
+      ar.add(r.Incheon_Tokyo_Small("2019/3/31", "11:00"));
+      ar.add(r.Incheon_London_Large("2019/3/31", "12:00"));
+      ar.add(r.Incheon_London_Medium("2019/3/31", "13:00"));
+      ar.add(r.Incheon_London_Small("2019/3/31", "14:00"));
+      ar.add(r.Incheon_Paris_Large("2019/3/31", "15:00"));
+      ar.add(r.Incheon_Paris_Medium("2019/3/31", "16:00"));
+      ar.add(r.Incheon_Paris_Small("2019/3/31", "17:00"));
+      ar.add(r.Incheon_Toronto_Large("2019/3/31", "18:00"));
+      ar.add(r.Incheon_Toronto_Medium("2019/3/31", "19:00"));
+      ar.add(r.Incheon_Toronto_Small("2019/3/31", "20:00"));
+      ar.add(r.Tokyo_Incheon_Large("2019/3/31", "09:00"));
+      ar.add(r.Tokyo_Incheon_Medium("2019/3/31", "10:00"));
+      ar.add(r.Tokyo_Incheon_Small("2019/3/31", "11:00"));
+      ar.add(r.London_Incheon_Large("2019/3/31", "12:00"));
+      ar.add(r.London_Incheon_Medium("2019/3/31", "13:00"));
+      ar.add(r.London_Incheon_Small("2019/3/31", "14:00"));
+      ar.add(r.Paris_Incheon_Large("2019/3/31", "15:00"));
+      ar.add(r.Paris_Incheon_Medium("2019/3/31", "16:00"));
+      ar.add(r.Paris_Incheon_Small("2019/3/31", "17:00"));
+      ar.add(r.Toronto_Incheon_Large("2019/3/31", "18:00"));
+      ar.add(r.Toronto_Incheon_Medium("2019/3/31", "19:00"));
+      ar.add(r.Toronto_Incheon_Small("2019/3/31", "20:00"));
+
+      // 4/1
+      ar.add(r.Incheon_Tokyo_Large("2019/4/1", "09:00"));
+      ar.add(r.Incheon_Tokyo_Medium("2019/4/1", "10:00"));
+      ar.add(r.Incheon_Tokyo_Small("2019/4/1", "11:00"));
+      ar.add(r.Incheon_London_Large("2019/4/1", "12:00"));
+      ar.add(r.Incheon_London_Medium("2019/4/1", "13:00"));
+      ar.add(r.Incheon_London_Small("2019/4/1", "14:00"));
+      ar.add(r.Incheon_Paris_Large("2019/4/1", "15:00"));
+      ar.add(r.Incheon_Paris_Medium("2019/4/1", "16:00"));
+      ar.add(r.Incheon_Paris_Small("2019/4/1", "17:00"));
+      ar.add(r.Incheon_Toronto_Large("2019/4/1", "18:00"));
+      ar.add(r.Incheon_Toronto_Medium("2019/4/1", "19:00"));
+      ar.add(r.Incheon_Toronto_Small("2019/4/1", "20:00"));
+      ar.add(r.Tokyo_Incheon_Large("2019/4/1", "09:00"));
+      ar.add(r.Tokyo_Incheon_Medium("2019/4/1", "10:00"));
+      ar.add(r.Tokyo_Incheon_Small("2019/4/1", "11:00"));
+      ar.add(r.London_Incheon_Large("2019/4/1", "12:00"));
+      ar.add(r.London_Incheon_Medium("2019/4/1", "13:00"));
+      ar.add(r.London_Incheon_Small("2019/4/1", "14:00"));
+      ar.add(r.Paris_Incheon_Large("2019/4/1", "15:00"));
+      ar.add(r.Paris_Incheon_Medium("2019/4/1", "16:00"));
+      ar.add(r.Paris_Incheon_Small("2019/4/1", "17:00"));
+      ar.add(r.Toronto_Incheon_Large("2019/4/1", "18:00"));
+      ar.add(r.Toronto_Incheon_Medium("2019/4/1", "19:00"));
+      ar.add(r.Toronto_Incheon_Small("2019/4/1", "20:00"));
+   }
+   
+
+   public void setDate(String date) {
+      this.date = date;
+   }
+
+   public String getTime() {
+      return time;
+   }
+
+   public void setTime(String time) {
+      this.time = time;
+   }
+
+   public Airplane getAirplane() {
+      return airplane;
+   }
+
+   public void setAirplane(Airplane airplane) {
+      this.airplane = airplane;
+   }
 }

@@ -7,16 +7,16 @@ public class Calendar2 {
     static void input(){
         Scanner sc=new Scanner(System.in);
         while(true) {
-        	System.out.println("예매할 날짜의 년도를 입력하세요.");
-        	year=sc.nextInt();
-        	if(! (year>=2019)) System.out.println("올바르지 않은 값입니다.");
-        	else break;
+           System.out.println("예매할 날짜의 년도를 입력하세요.");
+           year=sc.nextInt();
+           if(! (year>=2019)) System.out.println("올바르지 않은 값입니다.");
+           else break;
         }
         while(true) {
-        	System.out.println("예매할 날짜의 월을 입력하세요.");
-        	month=sc.nextInt();
-        	if(!(month >=1 && month<=12)) System.out.println("1~12월 중 한개를 입력해주세요.");
-        	else break;
+           System.out.println("예매할 날짜의 월을 입력하세요.");
+           month=sc.nextInt();
+           if(!(month >=1 && month<=12)) System.out.println("1~12월 중 한개를 입력해주세요.");
+           else break;
         }
     }
     static void output(int y, int m){
